@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route as RouteIcon, Package, MapPin, Users } from "lucide-react";
+import { Package, MapPin, Users } from "lucide-react";
 import AppLayout from "@/components/layout/AppLayout";
 import Index from "./pages/Index.tsx";
 import Vehiculos from "./pages/Vehiculos.tsx";
+import Rutas from "./pages/Rutas.tsx";
 import Placeholder from "./pages/Placeholder.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -22,16 +23,7 @@ const App = () => (
           <Route element={<AppLayout />}>
             <Route path="/" element={<Index />} />
             <Route path="/vehiculos" element={<Vehiculos />} />
-            <Route
-              path="/rutas"
-              element={
-                <Placeholder
-                  title="Rutas"
-                  subtitle="Planifica y monitorea las rutas de entrega."
-                  icon={RouteIcon}
-                />
-              }
-            />
+            <Route path="/rutas" element={<Rutas />} />
             <Route
               path="/ordenes"
               element={
