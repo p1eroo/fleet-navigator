@@ -5,7 +5,6 @@ import {
   Route as RouteIcon,
   Users,
   TrendingUp,
-  TrendingDown,
   CheckCircle2,
   Clock,
   AlertTriangle,
@@ -42,6 +41,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { vehicles, statusMeta as vehicleStatusMeta } from "@/data/vehicles";
 import { routes, routeStatusMeta } from "@/data/routes";
 import { cn } from "@/lib/utils";
+import FleetLiveMap from "@/components/dashboard/FleetLiveMap";
 
 /* ------------------------------ helpers ------------------------------ */
 const fmtMoney = (n: number) =>
@@ -246,47 +246,8 @@ const Dashboard = () => {
           />
         </div>
 
-        {/* Hero banner */}
-        <div className="overflow-hidden rounded-xl border border-border bg-gradient-dark p-6 text-white shadow-md sm:p-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary shadow-glow">
-                <TrendingUp className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h2 className="text-xl font-bold sm:text-2xl">
-                  Tu flota está funcionando al {stats.fleetUsage}%
-                </h2>
-                <p className="mt-1 max-w-xl text-sm text-white/70">
-                  Optimiza la asignación de rutas y reduce tiempos de entrega
-                  gestionando vehículos, conductores y órdenes desde un solo lugar.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              <div>
-                <p className="text-xs uppercase tracking-wider text-white/50">
-                  Cumplimiento
-                </p>
-                <p className="mt-1 text-2xl font-bold">{stats.onTimeRate}%</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-white/50">
-                  Entregas
-                </p>
-                <p className="mt-1 text-2xl font-bold">{stats.doneStops}</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-white/50">
-                  Pendientes
-                </p>
-                <p className="mt-1 text-2xl font-bold">
-                  {stats.totalStops - stats.doneStops}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Live fleet map */}
+        <FleetLiveMap />
 
         {/* Charts row */}
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
