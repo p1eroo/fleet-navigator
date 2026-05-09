@@ -10,6 +10,7 @@ import Vehiculos from "./pages/Vehiculos.tsx";
 import Rutas from "./pages/Rutas.tsx";
 import Placeholder from "./pages/Placeholder.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import SeguimientoOrden from "./pages/SeguimientoOrden.tsx";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,8 @@ const App = () => (
               }
             />
           </Route>
+          {/* Vista pública del cliente (sin AppLayout) */}
+          <Route path="/seguimiento/:orderId" element={<SeguimientoOrden />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
