@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   LayoutDashboard,
   Route,
@@ -9,6 +9,7 @@ import {
   Settings,
   LifeBuoy,
   X,
+  ExternalLink,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -128,6 +129,24 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-black/30">
             <div className="h-full w-3/4 rounded-full bg-gradient-primary" />
           </div>
+        </div>
+
+        {/* Mock: vista cliente */}
+        <div className="mx-3 mb-3">
+          <Link
+            to="/seguimiento/627133"
+            target="_blank"
+            onClick={onClose}
+            className="group flex items-center justify-between gap-2 rounded-lg border border-dashed border-sidebar-border px-3 py-2.5 text-xs font-medium text-sidebar-foreground transition-all hover:border-primary hover:bg-sidebar-accent hover:text-white"
+          >
+            <span className="flex items-center gap-2">
+              <ExternalLink className="h-3.5 w-3.5" />
+              Vista cliente (mock)
+            </span>
+            <span className="rounded-md bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+              DEMO
+            </span>
+          </Link>
         </div>
       </aside>
     </>
